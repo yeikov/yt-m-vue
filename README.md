@@ -1,6 +1,6 @@
 # yt-meetup-vue
 
-> ejemplo vuejs + vuefity + firebase
+> ejemplo vuejs + vuefity + firebase.
 
 ## Build Setup
 
