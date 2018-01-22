@@ -23,30 +23,29 @@
       </v-carousel>
     </v-flex>
   </v-layout>
-
   <v-layout row wrap class="mt-2">
     <v-flex xs12 class="text-xs-center"> 
       <p>Join our awesome meetups!</p>
     </v-flex>
-    
   </v-layout>
 
   </v-container>
 </template>
 <script>
-  export default{
-    computed:{
-        meetups(){
-          return this.$store.getters.featuredMeetups;
-        }
+  export default {
+    computed: {
+      meetups () {
+        return this.$store.getters.featuredMeetups
+      }
     },
-    methods:{
-      onLoadMeetup (id){
-        this.$router.push('/meetups/'+id)
+    methods: {
+      onLoadMeetup (id) {
+        this.$router.push('/meetups/' + id)
       }
     }
   }
 </script>
+
 <style scoped>
   .title{
     position: absolute;
