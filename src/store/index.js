@@ -10,13 +10,17 @@ export const store = new Vuex.Store({
         imageUrl: 'https://lonelyplanetimages.imgix.net/mastheads/GettyImages-538096543_medium.jpg?sharp=10&vib=20&w=1200',
         id: 'asdff234sdf',
         title: 'Meetup in New York',
-        date: '2018-07-16'
+        date: new Date(),
+        location: 'New York',
+        description: 'Meetup in New York'
       },
       {
         imageUrl: 'https://cache-graphicslib.viator.com/graphicslib/thumbs674x446/2050/SITours/escapada-de-un-d-a-a-londres-desde-par-s-en-eurostar-con-un-crucero-in-paris-408425.jpg',
         id: '43qqwerqw',
         title: 'London',
-        date: '2018-07-17'
+        date: new Date(),
+        location: 'City',
+        description: 'It\'s London!'
       }
     ],
     user: {
@@ -24,8 +28,25 @@ export const store = new Vuex.Store({
       registeredMeetups: ['asdff234sdf']
     }
   },
-  mutations: {},
-  actions: {},
+  mutations: {
+    createMeetup (state, payload) {
+      state.loadedMeetups.push(payload)
+    }
+  },
+  actions: {
+    createMeetup ({commit}, payload) {
+      const meetup = {
+        title: payload.title,
+        location: payload.location,
+        imageUrl: payload.imageUrl,
+        description: payload.description,
+        date: payload.date,
+        id: 'fdssaeeoeae'
+      }
+      // Reach out to firebase and store it
+      commit('createMeetup', meetup)
+    }
+  },
   getters: {
     loadedMeetups (state) {
       return state.loadedMeetups.sort((meetupA, meetupB) => {
@@ -43,5 +64,4 @@ export const store = new Vuex.Store({
       }
     }
   }
-
 })
