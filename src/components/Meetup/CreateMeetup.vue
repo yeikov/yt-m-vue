@@ -66,13 +66,13 @@
           <v-layout row class="mb-2">
             <v-flex xs12 offset-sm3>
               <v-date-picker v-model="date"></v-date-picker>
-              <p>{{ date }}</p>
+              <p>{{ date | date }}</p>
             </v-flex>
           </v-layout>
           <v-layout row>
             <v-flex xs12 offset-sm3>
-              <v-time-picker v-model="time"></v-time-picker>
-              <p>{{ time }}</p>
+              <v-time-picker v-model="time" format="24hr"></v-time-picker>
+              <p>{{ time | date }}</p>
             </v-flex>
           </v-layout>
           <v-layout row>
@@ -81,7 +81,7 @@
                 class="primary" 
                 :disabled="!formIsValid"
                 type="submit">Create Meetup</v-btn>
-                {{ submittableDateTime }}
+                {{ submittableDateTime | date }}
             </v-flex>
           </v-layout>
         </form>
@@ -111,14 +111,15 @@
       submittableDateTime () {
         const date = new Date(this.date)
         if (typeof this.time === 'string') {
-          const hours = this.time.match(/^(\d+)/)[1]
-          const minutes = this.time.match(/:(\d+)/)[1]
+          let hours = this.time.match(/^(\d+)/)[1]
+          let minutes = this.time.match(/:(\d+)/)[1]
           date.setHours(hours)
           date.setMinutes(minutes)
         } else {
           date.setHours(this.time.getHours())
           date.setMinutes(this.time.getMinutes())
         }
+        console.log('date: ' + date)
         return date
       }
     },
