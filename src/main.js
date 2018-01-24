@@ -2,13 +2,23 @@ import Vue from 'vue'
 
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.css'
+import * as firebase from 'firebase'
 
 import App from './App'
 import router from './router'
 import { store } from './store'
-
 import DateFilter from './filters/date'
+import { secret } from '../ignoreFileSession'
 
+/* ignoreFileSession.js inscrito en gitignore. contiene:
+export const secret = {apiKey: '****',
+  authDomain: '****',
+  databaseURL: '****',
+  projectId: '****',
+  storageBucket: '****'}
+*/
+
+console.log(secret)
 // Vue.use(Vuetify)
 Vue.use(Vuetify, {
   theme: {
@@ -29,5 +39,8 @@ new Vue({
   el: '#app',
   router,
   store,
-  render: h => h(App)
+  render: h => h(App),
+  created () {
+    firebase.initializeApp(secret)
+  }
 })
