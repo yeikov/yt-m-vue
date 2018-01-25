@@ -9,6 +9,7 @@ import router from './router'
 import { store } from './store'
 import DateFilter from './filters/date'
 import { secret } from '../ignoreFileSession'
+import AlertComp from './components/Shared/Alert'
 
 /* ignoreFileSession.js inscrito en gitignore. contiene:
 export const secret = {apiKey: '****',
@@ -31,6 +32,7 @@ Vue.use(Vuetify, {
   }
 })
 Vue.filter('date', DateFilter)
+Vue.component('app-alert', AlertComp)
 
 Vue.config.productionTip = false
 
