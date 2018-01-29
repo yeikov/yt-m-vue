@@ -10,6 +10,8 @@ import { store } from './store'
 import DateFilter from './filters/date'
 import { secret } from '../ignoreFileSession'
 import AlertComp from './components/Shared/Alert'
+// import AlertCmp from './components/Shared/Alert.vue' ??
+import EditMeetupDetailsDialog from './components/Meetup/Edit/EditMeetupDetailsDialog.vue'
 
 /* ignoreFileSession.js inscrito en gitignore. contiene:
 export const secret = {apiKey: '****',
@@ -33,6 +35,7 @@ Vue.use(Vuetify, {
 })
 Vue.filter('date', DateFilter)
 Vue.component('app-alert', AlertComp)
+Vue.component('app-edit-meetup-details-dialog', EditMeetupDetailsDialog)
 
 Vue.config.productionTip = false
 
