@@ -18,7 +18,7 @@
         <v-layout row wrap>
           <v-flex xs12>
             <v-date-picker v-model="editableDate" style="width:100%" actions>
-              <template scope="{save, cancel}">
+              <template slot-scope="{save, cancel}">
                 <v-btn flat class="blue--text darken-1" @click.native="editDialog = false">Close</v-btn>
                 <v-btn flat class="blue--text darken-1" @click.native="onSaveChanges">Save</v-btn>
               </template>
