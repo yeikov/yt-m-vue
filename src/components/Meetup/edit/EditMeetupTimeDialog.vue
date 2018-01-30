@@ -5,7 +5,7 @@
       slot="activator"
     >
       Edit Time
-      <v-icon right dark>event</v-icon>
+      <v-icon right dark>watch</v-icon>
     </v-btn>
     <v-card>
       <v-container> 
@@ -18,7 +18,7 @@
         <v-layout row wrap>
           <v-flex xs12>
             <v-time-picker v-model="editableTime" style="width:100%" actions format="24hr">
-              <template scope="{save, cancel}">
+              <template slot-scope="{save, cancel}">
                 <v-btn flat class="blue--text darken-1" @click.native="editDialog = false">Close</v-btn>
                 <v-btn flat class="blue--text darken-1" @click.native="onSaveChanges">Save</v-btn>
               </template>
@@ -46,7 +46,7 @@
         const minutes = this.editableTime.match(/:(\d+)/)[1]
         newDate.setHours(hours)
         newDate.setMinutes(minutes)
-        
+
         this.$store.dispatch('updateMeetupData', {
           id: this.meetup.id,
           date: newDate
