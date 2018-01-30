@@ -86,7 +86,6 @@
       loading () {
         return this.$store.getters.loading
       }
-
     },
     watch: {
       user (value) {
@@ -100,7 +99,6 @@
         this.$store.dispatch('signUserUp', {email: this.email, password: this.password})
       },
       onDismissed () {
-        console.log('Dismissed Alert!')
         this.$store.dispatch('clearError')
       }
     }
