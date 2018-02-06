@@ -1,6 +1,7 @@
 # yt-meetup-vue
 
 > ejemplo vuejs + vuefity + firebase.
+https://www.youtube.com/watch?v=FXY1UyQfSFw&list=PL55RiY5tL51qxUbODJG9cgrsVd7ZHbPrt&index=1
 
 ## Build Setup
 
